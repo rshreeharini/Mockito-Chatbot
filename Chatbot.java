@@ -4,7 +4,6 @@ package a2;
  * conversation will consist of an alternating sequence of sentences, one from the 
  * user, and one from the bot.
  *  
- * @author Dave Besen
  */
 interface Chatbot {
 	/**
