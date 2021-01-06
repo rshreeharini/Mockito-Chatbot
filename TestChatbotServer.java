@@ -51,15 +51,11 @@ public class TestChatbotServer {
 		 }
 		 InputStream s = new ByteArrayInputStream("Hi".getBytes()); //Test should use the input stream I'm passing
 		 when(mockSocket.getInputStream()).thenReturn(s);//server gets input from socket
-		// System.out.println(s.toString());
-		 when(mockChatbot.getResponse("Hi")).thenReturn("I am a Chatbot!");
-		 //when(mockChatbot.getResponse(s.toString())).thenReturn("ChatbotResponse");	 
+		 when(mockChatbot.getResponse("Hi")).thenReturn("I am a Chatbot!"); 
 		 OutputStream myOutputStream = new ByteArrayOutputStream();
 		 when(mockSocket.getOutputStream()).thenReturn(myOutputStream);
 		 
 		 myServer.handleOneClient();
-		 //System.out.println(myOutputStream.toString());
-		 //assertEquals("ChatbotResponseHey\n", myOutputStream.toString());
 		 assertEquals("I am a Chatbot!\n", myOutputStream.toString());
 	 }
 	 
@@ -79,7 +75,6 @@ public class TestChatbotServer {
 	        myServer.handleOneClient();
 	        myServer.handleOneClient();
 
-	        //System.out.println(myOutputStream.toString());
 	        assertEquals("This is an IOException\n", myOutputStream.toString());
 	    }
 	
@@ -108,7 +103,6 @@ public class TestChatbotServer {
 	        when(mockServerSocket.accept()).thenReturn(mockSocket);
 	        InputStream s = new ByteArrayInputStream("Hi".getBytes());
 	        when(mockSocket.getInputStream()).thenReturn(s);
-	        //when(mockChatbot.getResponse("Hi")).thenReturn("");
 	        when(mockChatbot.getResponse("Hi")).thenReturn(null); 
 
 	        OutputStream myOutputStream = new ByteArrayOutputStream();
@@ -116,7 +110,6 @@ public class TestChatbotServer {
 
 	        myServer.handleOneClient();
 
-	        //assertEquals("\n", myOutputStream.toString());
 	        assertEquals("null\n", myOutputStream.toString());
 	    }
 
