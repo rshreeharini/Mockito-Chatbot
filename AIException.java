@@ -4,7 +4,6 @@ package a2;
  * This is a checked exception.  It will be thrown when the Chatbot AI goes into a bad state and must be restarted, or when the input is malformed.<br />
  * This exception requires a message.
  * 
- * @author Dave Besen
  */
 public class AIException extends Exception {
 	public AIException(String message) {
