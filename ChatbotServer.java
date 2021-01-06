@@ -53,7 +53,6 @@ public class ChatbotServer{
 			while(true) {
 				String input = clientIn.readLine();	
 				String botResponse = "";
-				//System.out.println(input);
 				
 				if(input == null || input.equals("-1")){
 					s.close();
@@ -69,9 +68,7 @@ public class ChatbotServer{
 					botResponse = "Got AIException:"+e.getMessage();
 				}
 			PrintWriter Finalout = new PrintWriter(s.getOutputStream(),true);
-			//System.out.println(input);
 			
-			//System.out.println(botResponse);
 			Finalout.println(botResponse);
 			}
 		}	
